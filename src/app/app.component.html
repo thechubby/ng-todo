@@ -3,6 +3,11 @@
 </style>
 
 <div>
-  <h1>Test</h1>
+  <h1>ToDo List</h1>
+  <h3>Введите заметку</h3>
+  <input type="text" [(ngModel)]="input"/>
+  <button (click)="add(input)">Добавить</button>
+  <ol>
+    <li *ngFor="let note of notes; index as i">{{note}} <button (click)="del(i)">Удалить</button></li>
+  </ol>
 </div>
-

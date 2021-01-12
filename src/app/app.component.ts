@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ng-notes';
+  notes = ['Заметка'];
+  input: string;
+  add(item): void {
+    this.notes.push(item);
+  }
+  del(item): void {
+    this.notes.splice(item, 1);
+  }
 }

@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "ng-notes"
+  "defaultProject": "ng-notes",
+  "cli": {
+    "analytics": false
+  }
 }
