@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
+import {NotesService} from 'src/app/services/app.notesService';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import {FormsModule} from '@angular/forms';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [NotesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

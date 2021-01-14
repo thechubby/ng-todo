@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {NotesService} from './services/app.notesService';
 
 @Component({
   selector: 'app-root',
@@ -6,12 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  notes = ['Заметка'];
-  input: string;
-  add(item): void {
-    this.notes.push(item);
-  }
-  del(item): void {
-    this.notes.splice(item, 1);
+  constructor(public NotesService: NotesService) {
+    NotesService.input = this.NotesService.input;
+    NotesService.sbj = this.NotesService.sbj;
   }
 }
