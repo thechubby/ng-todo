@@ -22,6 +22,7 @@ export class NotesService {
   };
 
   del(iter: Iter) {
-    this.sbj.value.splice(iter,1);
-  };
-}
+    let newNotes = [...this.sbj.value].splice(iter, 1)
+    this.sbj.next(newNotes);
+  }
+};
