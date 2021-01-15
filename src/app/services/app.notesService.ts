@@ -9,18 +9,19 @@ type Iter = number;
 
 export class NotesService {
   public input: Input;
-  private note: Note;
-  private iter: Iter;
+  public notes = JSON.parse(localStorage.getItem('notes'));
+  public sbj = new BehaviorSubject<Array<string>>([]);
 
-  sbj = new BehaviorSubject<Array<string>>([]);
+  store() {
+    let notes = JSON.stringify(this.sbj.value);
+    localStorage.setItem('key', notes);
+  };
 
   add(note: Note) {
-    this.note = note;
-    this.sbj.subscribe(note => this.sbj.value.push(this.note));
+    this.sbj.next(this.sbj.value.concat(note));
   };
 
   del(iter: Iter) {
-    this.iter = iter;
-    this.sbj.subscribe(iter => this.sbj.value.splice(this.iter, 1));
-  }
+    this.sbj.value.splice(iter,1);
+  };
 }
