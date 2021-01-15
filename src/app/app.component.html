@@ -5,9 +5,9 @@
 <div>
   <h1>ToDo List</h1>
   <h3>Введите заметку</h3>
-  <input type="text" [(ngModel)]="NotesService.input"/>
-  <button (click)="NotesService.add(NotesService.input)">Добавить</button>
+  <input type="text" [formControl]="input"/>
+  <button (click)="add()">Добавить</button>
   <ol>
-    <li *ngFor="let note of NotesService.sbj | async; index as i">{{note}} <button (click)="NotesService.del(i)">Удалить</button></li>
+    <li *ngFor="let note of notes$ | async; index as i">{{note}} <button (click)="del(i)">Удалить</button></li>
   </ol>
 </div>
